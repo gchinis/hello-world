@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: hello-world
+  namespace: hello-world
+spec:
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 3000
+  selector:
+    service: hello-world
