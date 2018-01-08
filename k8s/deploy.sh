@@ -2,11 +2,13 @@
 
 set -e
 
-kubectl apply -f k8s/namespace.yml --record
+cd "$(dirname "$0")"
 
-kubectl apply -f k8s/serviceaccount.yml --record
-kubectl apply -f k8s/deployer-role.yml --record
-kubectl apply -f k8s/deployer-role-binding.yml --record
+kubectl apply -f namespace.yml --record
 
-kubectl apply -f k8s/deployment.yml --record
-kubectl apply -f k8s/service.yml --record
+kubectl apply -f serviceaccount.yml --record
+kubectl apply -f deployer-role.yml --record
+kubectl apply -f deployer-role-binding.yml --record
+
+kubectl apply -f deployment.yml --record
+kubectl apply -f service.yml --record
